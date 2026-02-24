@@ -4,8 +4,6 @@ const spaceId = process.env.REACT_APP_CONTENTFUL_SPACE_ID;
 const accessToken = process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN;
 
 
-console.log("Contentful Client Initialized with Space ID:", spaceId);
-console.log("Contentful Client Initialized with Access Token:", accessToken ? "Provided" : "Not Provided");
 const client = createClient({
     space: spaceId,
     accessToken: accessToken

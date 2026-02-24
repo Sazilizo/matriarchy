@@ -10,8 +10,7 @@ const AppRoutes = ()=>{
         <>
         <Routes>
             <Route path="/" element={<Home/>}></Route>
-            <Route path="products" element={<Products/>}>
-            </Route>
+            <Route path="products" element={<Products/>}></Route>
             <Route path="products/product/:id" element={<ProductInfo/>}></Route>
             <Route path="products/upload" element={<ProductUpload/>}></Route>
             <Route path="*" element={<p>Page not found</p>}></Route>

@@ -3,6 +3,9 @@ import { getProducts } from "./GetProducts";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import "./products.css"
+import InlineBanner from "./InlineBanner";
+
+
 const Home=()=>{
     const {data, isError, isLoading,error} = useQuery({
         queryKey: ["product"],
@@ -10,30 +13,7 @@ const Home=()=>{
         staleTime: 1000*60*5,
     });
 
-    const testBackendSendData = async () => {
-        try {
-            const res = await fetch("http://localhost:3000/api/products", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name: "From frontend",
-                price: 250,
-            }),
-            });
-
-            const data = await res.json();
-            console.log("Backend response:", data);
-        } catch (err) {
-            console.error("Fetch error:", err);
-        }
-        };
-
-    useEffect(() => {
-        testBackendSendData();
-    }, []);
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
+    const tops = data?.filter(product => product.fields.subCategory && (product.fields.subCategory.includes("Dresses") || product.fields.subCategory.includes("dresses")));
 
     if(!isLoading && !isError && !data) return <p>No available data</p>
     if (isLoading) return <p>Loading...</p>
@@ -41,7 +21,9 @@ const Home=()=>{
 
     return (
         <>
-        
+        <div className="banner__wrapper">
+            <InlineBanner classNames={["inline__banner-container", "inline__banner-wrapper", "inline__banner-flex-row", "inline__banner-products", "inline__banner-product-link"]}  flexDirection="row-reverse" products={tops.length > 3 ? tops.slice(0, 3) : tops} />
+        </div>
         <div className="product__cards">
             {data && data.map(product=>{
                 const {id} =product.sys

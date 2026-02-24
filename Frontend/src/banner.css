@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+.inline__banner-container{
+    width: 90%;
+    place-self: center;
+    max-height: 20rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border:1px solid red;
+    .inline__banner-products{
+        width:69%;
+        display: flex;
+        gap: 1rem;
+        .inline__banner-product
+        {
+            width:auto;
+            place-content: center;
+            place-self: center;
+            border:1px solid blue;
+            height:fit-content;
+            .inline__banner-product-image{
+                width:fit-content;
+                height: 20rem;
+                object-fit: cover;
+                border:1px solid green;
+                position: relative;
+                img{
+                    width:100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                .product__sale-percentage{
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    background-color: red;
+                    color:white;
+                    padding:0.2rem 0.5rem;
+                    font-size:0.8rem;
+                }
+                a{
+                    color:white;
+                }
+            }
+            .inline__banner-product-info{
+                position:absolute;
+                bottom:0;
+                display: flex;
+                width:100%;
+                justify-content: space-between;
+                background-color: rgb(250, 237, 237);
+                padding: 1rem .5rem
+            }
+        }
+    }
+    .inline__banner-product-link{
+        width:30%;
+        height:20rem;
+        place-content: center;
+        place-self: center;
+        place-items: center;
+        border:1px solid blue;
+        background-color: red;
+        border-radius:  0 0 0 25rem;
+        text-align: center;
+        .inline__banner-product-link-btn{
+            padding: 0.75rem 1.5rem;
+            border-radius: 999px;
+            border: none;
+            font-weight: 700;
+            white-space: nowrap;
+            background-color: white;
+            color: red;
+        }
+    }
+}
