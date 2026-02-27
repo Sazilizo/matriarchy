@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useParams,Link, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getProductById } from "./GetProducts";
@@ -17,16 +17,28 @@ const ProductInfo=()=>{
         });
 
 
+    const imageUrl =product && product.fields.image.fields.file.url &&
+    `https:${product.fields.image.fields.file.url}`;
+
     if (!product) return <p>Loading...</p>
+     const {createdAt} = product && product.sys
+
+    const createdDate = new Date(createdAt)
+    const now = new Date()
+
+    const isNew =
+        createdDate.getMonth() === now.getMonth() &&
+        createdDate.getFullYear() === now.getFullYear();
 
     return(
         <main className="product__info-wrapper">
             <Breadcrumbs/>
+            <p>{isNew? "New":"Old"}</p>
             <div className="product__info">
                 <div className="product__info-image--wrapper">
                     <div className="product__main-image--wrapper">
                         <div className="product__main-image">
-                            <img src={product.fields.image.fields.file.url} alt={product.fields.description}/>
+                            <img src={imageUrl} alt={product.fields.description}/>
                             {product.fields.isOnSale && <p className="product__sale-percentage">{product.fields.salePercentage}% off</p>}
                         </div>
                         {product.fields.gallery && <div className="product__gallery">

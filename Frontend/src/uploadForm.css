@@ -24,7 +24,17 @@
   box-sizing: border-box;
 }
 
-body {
+
+/* ===============================
+   Form Container
+================================ */
+.upload-form {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   background: var(--bg);
   color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
@@ -32,28 +42,16 @@ body {
 }
 
 /* ===============================
-   Form Container
-================================ */
-form {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 2.5rem;
-  background: var(--surface);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* ===============================
    Headings & Groups
 ================================ */
-fieldset {
+.upload-form fieldset {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
 
-legend {
+.upload-form legend {
   padding: 0 0.75rem;
   font-size: 0.85rem;
   font-weight: 600;
@@ -65,9 +63,9 @@ legend {
 /* ===============================
    Inputs
 ================================ */
-input,
-select,
-textarea {
+.upload-form input,
+.upload-form select,
+.upload-form textarea {
   width: 100%;
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -78,19 +76,19 @@ textarea {
   transition: border var(--transition), box-shadow var(--transition);
 }
 
-textarea {
+.upload-form textarea {
   min-height: 120px;
   resize: vertical;
 }
 
-input::placeholder,
-textarea::placeholder {
+.upload-form input::placeholder,
+.upload-form textarea::placeholder {
   color: var(--muted);
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.upload-form input:focus,
+.upload-form select:focus,
+.upload-form textarea:focus {
   outline: none;
   box-shadow: var(--focus);
   border-color: var(--primary);
@@ -115,7 +113,7 @@ textarea:focus {
 /* ===============================
    Checkbox & Radio Styling
 ================================ */
-label {
+.upload-form label {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -124,7 +122,7 @@ label {
   cursor: pointer;
 }
 
-input[type="checkbox"] {
+.upload-form input[type="checkbox"] {
   appearance: none;
   width: 18px;
   height: 18px;
@@ -135,12 +133,12 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-input[type="checkbox"]:checked {
+.upload-form input[type="checkbox"]:checked {
   background: var(--primary);
   border-color: var(--primary);
 }
 
-input[type="checkbox"]:checked::after {
+.upload-form input[type="checkbox"]:checked::after {
   content: "✓";
   position: absolute;
   top: -1px;
@@ -176,13 +174,13 @@ input[type="checkbox"]:checked::after {
 /* ===============================
    File Inputs
 ================================ */
-input[type="file"] {
+.upload-form input[type="file"] {
   padding: 0.6rem;
   background: var(--surface-2);
   cursor: pointer;
 }
 
-input[type="file"]::-webkit-file-upload-button {
+.upload-form input[type="file"]::-webkit-file-upload-button {
   background: var(--primary);
   color: white;
   border: none;
@@ -193,14 +191,14 @@ input[type="file"]::-webkit-file-upload-button {
   transition: background var(--transition);
 }
 
-input[type="file"]::-webkit-file-upload-button:hover {
+.upload-form input[type="file"]::-webkit-file-upload-button:hover {
   background: var(--primary-hover);
 }
 
 /* ===============================
    Submit Button
 ================================ */
-button {
+.upload-form button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -216,11 +214,11 @@ button {
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
 }
 
-button:hover {
+.upload-form button:hover {
   transform: translateY(-1px);
 }
 
-button:active {
+.upload-form button:active {
   transform: translateY(0);
 }
 

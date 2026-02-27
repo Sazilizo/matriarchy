@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "ajv": "^8.18.0",
+    "ajv-keywords": "^5.1.0",
     "contentful": "^11.10.3",
     "framer-motion": "^12.34.3",
     "react": "^19.2.4",
