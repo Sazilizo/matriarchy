@@ -1,0 +1,39 @@
+:root{
+    --primary-color:#ff4081;
+    --secondary-color:#f50057;
+}
+.header__banner-container{
+    margin:0;
+    padding:0;
+    display: flex;
+    position:relative;
+    align-items: flex-start;
+    align-self: flex-end;
+    height:80vh;
+}
+.header__banner-cta{
+    width:50%;
+    position:absolute;
+    top:50%;
+    left:0%;
+    transform:translate(20%, -50%);
+    font-size: clamp(1.3rem, 1.9vw, 2.3rem);
+    color:rgb(240, 236, 236);
+    background-clip: border-box;
+    background-blend-mode: transparent;
+}
+.header__banner-image{
+    width:50%;
+    border:1px solid rgb(172, 15, 15);
+}
+.highlighted{
+    color:var(--primary-color);
+    font-weight:600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    text-transform: capitalize;
+}
+.logo__highlight{
+    color:var(--secondary-color);
+    font-weight:700;
+}

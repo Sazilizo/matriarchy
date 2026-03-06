@@ -3,12 +3,13 @@ import './App.css';
 import AppRoutes from './AppRoute';
 import HeroSection from './Header';
 import NavBar from './Navbar';
+import Header from './Header';
 
 function App() {
   return (
     <div className="App">
       {/* <HeroSection/> */}
-      <NavBar/>
+      <Header/>
       <AppRoutes/>
     </div>
   );

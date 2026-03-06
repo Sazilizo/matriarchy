@@ -1,7 +1,32 @@
 import { useAnimationFrame } from "framer-motion";
 import { useRef } from "react";
+import './Header.css';
 import "./HeroSection.css";
+import NavBar from "./Navbar";
 
+const Header =()=>{
+  return (
+    <div className="header__container">
+      <NavBar/>
+      <HeaderBanner/>
+    </div>
+  )
+}
+const HeaderBanner =()=>{
+  return(
+    <div className="header__banner-container">
+      <div className="header__banner-cta">
+        <h2>Show like a <span className="logo__highlight">matriarch</span></h2>
+        <p>Discover the latest trends in fashion, shop like the <span className="highlighted">queen</span> you know you are.</p>
+        <button className="header__banner-cta-btn">Shop Now</button>
+      </div>
+      <div className="header__banner-image">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbiUyMG1vZGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="header banner"/>
+      </div>
+    </div>
+  )
+}
+export default Header;
 
 const HeaderSection = () => {
   return(

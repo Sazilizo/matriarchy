@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import Product from "./Product";
 import "./products.css"
-import InlineBanner from "./InlineBanner";
+// import InlineBanner from "./InlineBanner";
 
 
 const Home=()=>{
@@ -26,9 +26,9 @@ const Home=()=>{
 
     return (
         <>
-        <div className="banner__wrapper">
+        {/* <div className="banner__wrapper">
             <InlineBanner classNames={["inline__banner-container", "inline__banner-wrapper", "inline__banner-flex-row", "inline__banner-products", "inline__banner-product-link"]}  flexDirection="row-reverse" products={tops.length > 3 ? tops.slice(0, 3) : tops} />
-        </div>
+        </div> */}
         <div className="product__cards">
             {data && data.map(product=>{
                 const {id, createdAt} =product.sys
