@@ -1,57 +1,44 @@
-// import React, { useState, useEffect } from 'react';
-// import { Link, Outlet } from 'react-router';
-// import "./banner.css";
-// const InlineBanner =({classNames, flexDirection, products})=>{
-    
-//     const mainClass = classNames && classNames.filter((c) => c.includes("inline__banner-container") || c.includes("inline__banner-wrapper"));
-//     const productsBanner = classNames && classNames.filter((c) => c.includes("inline__banner-products"));
-//     const productsLinks = classNames && classNames.filter((c) => c.includes("inline__banner-product-link"));
+import React from 'react';
+import { Link } from 'react-router';
+import "./inlinebanner.css";
+import bagsImage from "./assets/bags banner image.jpeg"
+import bagsSupportImage from "./assets/brown leather bag modeled.jpeg"
+import shoesImage from "./assets/shoes banner image.jpeg"
 
-//      return(
-//         <div style={{flexDirection: flexDirection}}className={mainClass ? mainClass.join(" ") : "inline__banner-container inline__banner-wrapper " + flexDirection}>
-//             {products &&<div className={productsBanner ? productsBanner.join(" ") : "inline__banner-products"}>
-//                 {products.map((product) => {
-//                     const {id,createdAt} =product.sys
-//                     const {description,isOnSale,price,salePercentage,} = product.fields;
-//                     const {url:image} =product.fields.image.fields.file;
-//                     const createdDate = new Date(createdAt)
-//                     const now = new Date()
+const Banner =()=>{
 
-//                     const isNew =
-//                         createdDate.getMonth() === now.getMonth() &&
-//                         createdDate.getFullYear() === now.getFullYear();
-//                     return(
-//                         <div key={id} className="inline__banner-product">
-//                             <Link to={`products/product/${id}`}>
-//                                 <div className="inline__banner-product-image">
-//                                     <img src={image} alt={description}/>
+    return(
+        <section className="banner__container">
+            <div className="banner__wrapper">
+                <div className="banner banner1">
+                    <span className="banner__title">
+                        Bags!! Bags!! and more Bags!
+                    </span>
+                    <Link className="bag__banner-image" to={"/products/bags"}>
+                        <img src={bagsImage} alt="bags"/>
+                    </Link>
+                    <div className="tmbler__support-image">
+                        <img  src={bagsSupportImage} alt="modeled bag"/>
+                    </div>
+                </div>
+                <div className="banner banner2">
+                    <Link to={"/products/shoes"}>
+                        <img src={shoesImage} alt="shoes" />
+                    </Link>
+                </div>
+                <div className="banner banner3">
+                    <Link to={"products/accessories"}>
+                        <img src={bagsSupportImage} alt="modeled bag"/>
+                    </Link>
+                </div>
+                <div className="banner banner4">
+                    <h2></h2>
+                    <p>A lot of text about encouraging and motivating women to feel at home with this website</p>
+                    <button type="submit">Sign up for newletter</button>
+                </div>
+            </div>
+        </section>
+    )
+}
 
-//                                     {product.fields.isOnSale && (
-//                                         <p>
-//                                             now: R
-//                                             {price * (1 - salePercentage / 100)}
-//                                         </p>
-//                                     )}
-//                                     {isNew && <p className="product__new-label">New</p>  }
-//                                     <div className="inline__banner-product-info">
-//                                             {isOnSale && <p className="product__was-price">was: R{price}</p>}
-//                                             {isOnSale && <p>now: R{price - (price * 0.2)}</p>}
-//                                             {!isOnSale && <p>R{price}</p>}
-//                                     </div>
-//                                 </div>
-//                             </Link>
-//                         </div>
-//                     )
-//                 })}
-//             </div>}
-//             <div className={productsLinks ? productsLinks.join(" ") : "inline__banner-product-link"}>
-//                 <Link to="/products" className="inline__banner-link">
-//                     {products &&<button className="inline__banner-product-link-btn">{products[0].fields?.subCategory}</button>}
-//                 </Link>
-//             </div>
-//             <Outlet/>
-//         </div>
-//      )
-// }
-
-// export default InlineBanner;
+export default Banner

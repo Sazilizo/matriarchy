@@ -11,7 +11,7 @@
     "ajv": "^8.18.0",
     "ajv-keywords": "^5.1.0",
     "contentful": "^11.10.3",
-    "framer-motion": "^12.34.3",
+    "framer-motion": "^12.36.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.0",

@@ -1,16 +1,22 @@
-import { Outlet } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import AppRoutes from './AppRoute';
-import HeroSection from './Header';
-import NavBar from './Navbar';
 import Header from './Header';
 
 function App() {
+
+  const location = useLocation();
+
+  const isProductPage = location.pathname.startsWith("/products/product");
+
   return (
     <div className="App">
-      {/* <HeroSection/> */}
-      <Header/>
+
+      {!isProductPage && <Header />}
+
       <AppRoutes/>
+
     </div>
   );
 }

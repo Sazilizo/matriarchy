@@ -11,7 +11,8 @@ const INITIAL_FILTERS = {
 }
 
 export const ProductsProvider = ({ children }) => {
-  const [filters, setFilters] = useState(INITIAL_FILTERS)
+  const [filters, setFilters] = useState(INITIAL_FILTERS);
+  const [showFilterOverlay, setShowFilterOverlay] = useState(false);
 
   const resetFilters = () => setFilters(INITIAL_FILTERS)
 
@@ -19,6 +20,8 @@ export const ProductsProvider = ({ children }) => {
     filters,
     setFilters,
     resetFilters,
+    showFilterOverlay,
+    setShowFilterOverlay,
   }
 
   return (

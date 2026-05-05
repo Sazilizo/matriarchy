@@ -1,6 +1,6 @@
-:root{
-    --primary-color:#ff4081;
-    --secondary-color:#f50057;
+
+.header__container{
+    overflow: hidden;
 }
 .header__banner-container{
     margin:0;

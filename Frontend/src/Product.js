@@ -18,10 +18,11 @@ const Product = ({ product }) => {
         createdDate.getMonth() === now.getMonth() &&
         createdDate.getFullYear() === now.getFullYear();
 
-  return (
+    const salePrice = isOnSale && product.fields.salePercentage && Math.round(price * (1 - product.fields?.salePercentage / 100))
+    return (
     <div className="product__card">
       <div className="product__card-image">
-        <Link to={`/products/product/${id}`}>
+        <Link className="product__card-image--link" to={`/products/product/${id}`}>
           {imageUrl && (
             <img
             
@@ -30,15 +31,26 @@ const Product = ({ product }) => {
               loading="lazy"
             />
           )}
-          {isNew && <p className="product__new-label">New</p>}
         </Link>
+          {isNew && <p className="product__new-label">New</p>}
+          {isOnSale && <p className="product__sale-label">Sale</p>}
       </div>
 
       <div className="product__card-info">
-        <h3>{name}</h3>
+        <h3 className="secondary__heading">{name.length > 20 ? `${name.substring(0, 25)}...` : name }</h3>
         <div className="product__card-price">
-          <p>R{price}</p>
-          {isOnSale && <p>On Sale</p>}
+          {isOnSale && product.fields.salePercentage ? (
+            <div className="product__card-price--container">
+              <span style={{ textDecoration: 'line-through' }} className="tertiary__heading product__card-price--original">R{price}</span>
+              <span className="tertiary__heading product__card-price--sale">
+                R{salePrice}
+              </span>
+              <span className="product__sale-percentage">{product.fields.salePercentage}%</span>
+            </div>
+          ) : (
+            <span className="tertiary__heading">R{price}</span>
+          )}
+
         </div>
       </div>
     </div>
